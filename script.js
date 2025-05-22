@@ -1,3 +1,4 @@
+// 图片预览功能（前后身份证）
 function previewImage(event, id) {
   const reader = new FileReader();
   reader.onload = function () {
@@ -6,6 +7,7 @@ function previewImage(event, id) {
   reader.readAsDataURL(event.target.files[0]);
 }
 
+// 表单提交处理逻辑
 document.getElementById("loan-form").addEventListener("submit", async function (e) {
   e.preventDefault();
   const form = e.target;
@@ -29,12 +31,12 @@ document.getElementById("loan-form").addEventListener("submit", async function (
       form.reset();
       document.getElementById("preview-front").src = "";
       document.getElementById("preview-back").src = "";
-      document.getElementById("preview-extra").src = "";
     } else {
-      alert("Submission failed. Please try again.");
+      const err = await response.json();
+      alert("Submission failed: " + (err.message || "Unknown error"));
     }
   } catch (error) {
     alert("An error occurred. Please try again.");
-    console.error(error);
+    console.error("❌ Submission Error:", error);
   }
 });
