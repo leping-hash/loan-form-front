@@ -17,7 +17,7 @@ document.getElementById("loan-form").addEventListener("submit", async function (
     return;
   }
 
-  const response = await fetch("https://your-render-url.onrender.com/submit", {
+  const response = await fetch("https://loanbackend-yg11.onrender.com", {
     method: "POST",
     body: data
   });
