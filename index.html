@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credify Global Finance</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Credify Global Finance</h1>
+    <p>Your Trusted Loan Partner Since 2005</p>
+  </header>
+
+  <section class="company-info">
+    <h2>About Us</h2>
+    <p>Founded in 2005, Credify Global Finance has been offering secure, reliable, and accessible loans to individuals in over 20 countries. With over 500,000 satisfied customers and a 95% approval rate, we aim to make financial freedom a reality for everyone.</p>
+  </section>
+
+  <section class="advantages">
+    <h2>Why Choose Us</h2>
+    <ul>
+      <li>✔️ Simple Application Process</li>
+      <li>✔️ High Loan Limits</li>
+      <li>✔️ Instant Identity Verification</li>
+      <li>✔️ Upload ID, Passport or Driver's License</li>
+    </ul>
+  </section>
+
+  <section class="form-section">
+    <h2>Apply for a Loan</h2>
+    <form id="loan-form" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="text" name="country" placeholder="Country" required />
+      <input type="text" name="city" placeholder="City" required />
+      <input type="text" name="income" placeholder="income monthly" required />
+      <input type="number" name="amount" placeholder="Loan Amount ($)" required />
+      <label>ID Front:</label><input type="file" name="id_front" accept="image/*" required onchange="previewImage(event, 'preview-front')" />
+      <img id="preview-front" class="preview" />
+      <label>ID Back:</label><input type="file" name="id_back" accept="image/*" onchange="previewImage(event, 'preview-back')" />
+      <img id="preview-back" class="preview" />
+      <button type="submit">Submit</button>
+      <p id="form-message"></p>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
