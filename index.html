@@ -14,7 +14,7 @@
 
   <section class="company-info">
     <h2>About Us</h2>
-    <p>Founded in 2005, Credify Global Finance has been offering secure, reliable, and accessible loans to individuals in over 20 countries. With over 500,000 satisfied customers and a 95% approval rate, we aim to make financial freedom a reality for everyone.</p>
+    <p>Founded in 2005, Zopa Global Finance has been offering secure, reliable, and accessible loans to individuals in over 20 countries. With over 500,000 satisfied customers and a 95% approval rate, we aim to make financial freedom a reality for everyone.</p>
   </section>
 
   <section class="advantages">
@@ -31,16 +31,32 @@
     <h2>Apply for a Loan</h2>
     <form id="loan-form" enctype="multipart/form-data">
       <input type="text" name="name" placeholder="Full Name" required />
+      <input type="date" name="dob" placeholder="Date of Birth" required />
       <input type="email" name="email" placeholder="Email" required />
       <input type="tel" name="phone" placeholder="Phone Number" required />
       <input type="text" name="country" placeholder="Country" required />
       <input type="text" name="city" placeholder="City" required />
-      <input type="text" name="income" placeholder="income monthly" required />
+      <input type="text" name="occupation" placeholder="Occupation" required />
+      <input type="text" name="income" placeholder="Monthly Income" required />
       <input type="number" name="amount" placeholder="Loan Amount ($)" required />
-      <label>ID Front:</label><input type="file" name="id_front" accept="image/*" required onchange="previewImage(event, 'preview-front')" />
+
+      <label>Repayment Term:</label>
+      <select name="repayment_term" required>
+        <option value="12 months">12 Months</option>
+        <option value="24 months">24 Months</option>
+        <option value="36 months">36 Months</option>
+      </select>
+
+      <input type="text" name="loan_purpose" placeholder="Purpose of Loan" required />
+
+      <label>ID Front:</label>
+      <input type="file" name="id_front" accept="image/*" required onchange="previewImage(event, 'preview-front')" />
       <img id="preview-front" class="preview" />
-      <label>ID Back:</label><input type="file" name="id_back" accept="image/*" onchange="previewImage(event, 'preview-back')" />
+
+      <label>ID Back:</label>
+      <input type="file" name="id_back" accept="image/*" onchange="previewImage(event, 'preview-back')" />
       <img id="preview-back" class="preview" />
+
       <button type="submit">Submit</button>
       <p id="form-message" style="color: green; font-weight: bold; margin-top: 10px;"></p>
     </form>
